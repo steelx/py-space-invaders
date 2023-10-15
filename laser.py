@@ -2,7 +2,7 @@ import pygame
 
 
 class Laser(pygame.sprite.Sprite):
-    def __init__(self, pos: tuple[float, float], speed:int):
+    def __init__(self, pos: tuple[float, float], speed: int):
         super().__init__()
         self.image = pygame.Surface((4, 20))
         self.image.fill((255, 255, 255))

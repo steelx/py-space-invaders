@@ -10,6 +10,7 @@ from obstacles import Block
 
 
 class Game:
+    objects: dict[str, pygame.sprite.Group]
     def __init__(self, screen_: pygame.Surface):
         self.screen = screen_
         screen_width = self.screen.get_width()
@@ -24,11 +25,11 @@ class Game:
         self.extra_aliens = pygame.sprite.Group()
 
     def run(self):
-        self.player.update()
+        self.player.update(self)
         self.blocks.update()
-        self.aliens.update()
+        self.aliens.update(self)
         Extra.spawn_extra_alien(self.extra_aliens)
-        self.extra_aliens.update()
+        self.extra_aliens.update(self)
 
         self.player.draw(self.screen)
         self.player.sprite.lasers.draw(self.screen)
